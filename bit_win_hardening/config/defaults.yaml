@@ -1,5 +1,3 @@
 bit_win_hardening:
-  your: mother
-  is:
-  - fat
-  - old 
+  enable: true
+  location: "c:\temp"
