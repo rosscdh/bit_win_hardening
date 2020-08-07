@@ -1,0 +1,2 @@
+{% import_yaml 'bit_win_hardening/config/defaults.yaml' as preconfig %}
+{% set config = salt.pillar.get( 'bit_win_hardening', default=preconfig.bit_win_hardening, merge=True ) %}

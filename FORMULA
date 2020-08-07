@@ -1,0 +1,7 @@
+name: bit_win_hardening
+os: CentOS
+os_family: RedHat
+version: 0.0.1
+release: 1
+description: XYZ saltstack formula
+top_level_dir:  bit_win_hardening
