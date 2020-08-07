@@ -1,3 +1,4 @@
+{%- from "bit_win_hardening/map.jinja" import config with context %}
 # Windows 10 privacy settings
 # Michi Dönselmann
 # Last change: 11.06.2020
@@ -9,11 +10,11 @@
 # define script execution params. Default is false, so spying will stay enabled
 param
 (
-    {{- if config.enable }}
+{%- if config.enable == 'true' %}
     [bool]$enable = $true
-    {{- else }}
+{%- else %}
     [bool]$enable = $false
-    {{- endiif }}
+{%- endif %}
 )
 
 #----------------------------------------------------------------------------------
