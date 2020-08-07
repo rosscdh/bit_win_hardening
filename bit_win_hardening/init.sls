@@ -15,7 +15,7 @@ windows_hardening_script:
 {%- if config.run == 'true' %}
 run_windows_hardening_script:
   cmd.run:
-  - name: 'Powershell.exe -File {{ config.location }}/Windows10_Privacy.ps1'
+  - name: 'Powershell.exe -executionpolicy bypass -File {{ config.location }}/Windows10_Privacy.ps1'
   - shell: powershell
   - watch:
     - file: {{ config.location }}/Windows10_Privacy.ps1
