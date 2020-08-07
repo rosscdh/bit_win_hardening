@@ -1,5 +1,10 @@
 {%- from "bit_win_hardening/map.jinja" import config with context %}
 
+{{ config.location }}:
+  file.directory:
+    - mode: 755
+    - makedirs: True
+
 windows_hardening_script:
   file.serialize:
   - name: {{ config.location }}

@@ -11,7 +11,7 @@ provisioner:
   install_strategy: always
   formula: bit_win_hardening
   pillars_from_files:
-    bit_win_hardening.sls: pillar.example.sls
+    bit_win_hardening.sls: pillar.example
   pillars:
     top.sls:
       base:
