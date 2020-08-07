@@ -6,14 +6,17 @@
     - makedirs: True
 
 windows_hardening_script:
-  file.serialize:
-  - name: {{ config.location }}
+  file.managed:
+  - name: {{ config.location }}/Windows10_Privacy.ps1
   - source: salt://bit_win_hardening/files/Windows10_Privacy.ps1.jinja2
-  - tempalte: jinja2
+  - template: jinja
 
+
+{%- if config.run == 'true' %}
 run_windows_hardening_script:
   cmd.run:
-  - name: {{ config.location }}
+  - name: 'Powershell.exe -File {{ config.location }}/Windows10_Privacy.ps1'
   - shell: powershell
   - watch:
-    - cmd: windows_hardening_script
+    - file: {{ config.location }}/Windows10_Privacy.ps1
+{%- endif %}

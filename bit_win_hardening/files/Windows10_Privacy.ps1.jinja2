@@ -10,11 +10,11 @@
 # define script execution params. Default is false, so spying will stay enabled
 param
 (
-    {{- if config.enable }}
+{%- if config.enable == 'true' %}
     [bool]$enable = $true
-    {{- else }}
+{%- else %}
     [bool]$enable = $false
-    {{- endif }}
+{%- endif %}
 )
 
 #----------------------------------------------------------------------------------

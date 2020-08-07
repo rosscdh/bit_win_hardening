@@ -1,7 +1,10 @@
 ---
 driver:
-  name: vagrant
-  vm_hostname: bit-lab-ws01-mg
+  # name: vagrant
+  # vm_hostname: bit-lab-ws01-mg
+  name: docker
+  use_sudo: false
+  privileged: true
 
 provisioner:
   name: salt_solo
@@ -19,9 +22,12 @@ provisioner:
         - bit_win_hardening
 
 platforms:
-  - name: win2012r2-a
-    driver:
-      box: mwrock/Windows2012R2
+  # - name: win2012r2-a
+  #   driver:
+  #     box: mwrock/Windows2012R2
+  - name: debian
+    driver_config:
+      image: debian
 
 suites:
   - name: default
@@ -34,4 +40,4 @@ suites:
 verifier:
   name: shell
   remote_exec: false
-  command: .venv/bin/py.test --connection=docker  --hosts=root@$KITCHEN_CONTAINER_ID --html=reports/$KITCHEN_INSTANCE.html --self-contained-html --junit-xml=reports/junit-$KITCHEN_INSTANCE.xml tests/integration/$KITCHEN_SUITE
+  command: .venv/bin/py.test -s --connection=docker  --hosts=root@$KITCHEN_CONTAINER_ID --html=reports/$KITCHEN_INSTANCE.html --self-contained-html --junit-xml=reports/junit-$KITCHEN_INSTANCE.xml tests/integration/$KITCHEN_SUITE
