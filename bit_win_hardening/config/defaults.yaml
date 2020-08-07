@@ -1,4 +1,4 @@
 bit_win_hardening:
-  enable: true
+  enable: 'true'
   location: "c:\temp"
-  run: true
+  run: 'true'
